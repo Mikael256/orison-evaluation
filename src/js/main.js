@@ -1,5 +1,11 @@
+var $nav = $(".navigation");
+var $window = $(window);
 
-let truc = 0;
-
-
-var bazar = 1;
+$window.scroll(function()
+{
+  let scroll = $window.scrollTop();  
+  if(scroll > 14)
+    $nav.addClass("scrolled");
+  else
+    $nav.removeClass("scrolled");
+});

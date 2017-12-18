@@ -1,0 +1,39 @@
+.roundButtons
+{
+  padding: .3rem 1.5rem;
+
+  border-radius: 2rem;
+  border: 1px solid white;
+
+  font-weight: normal;
+  text-transform: uppercase;
+
+  color: white;
+
+  display: inline-block;
+  transition: $mainTransition;
+
+  &--normalCase
+  {
+    text-transform: none;
+
+    &:hover
+    {
+      color: $titleGray;
+      border-color: $titleGray;
+      background: transparent;
+    }
+  }
+
+  &:hover
+  {
+    background: white;
+    color: black;
+    text-decoration: none;
+  }
+  &--filled
+  {
+    background-color: $titleGray;
+    border: none;
+  }
+}

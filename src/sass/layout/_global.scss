@@ -4,3 +4,11 @@ html {
 *, *:before, *:after {
   box-sizing: inherit;
 }
+
+.wrapper
+{
+  margin: 0 auto;
+
+  width: calc(100% - 2em);
+  max-width: 1100px;
+}

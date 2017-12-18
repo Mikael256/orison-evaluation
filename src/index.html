@@ -13,62 +13,73 @@
  	<body lang="en">
     <!-- navigation -->
     <div class="navigation">
-      <div class="wrapper">
-        <img src="img/logo.svg" alt="Orison">
-        <nav class="navigation__menu">
-          <a href="products.html" class="menu__link">Products</a>
-          <a href="about.html" class="menu__link">About</a>
-          <a href="blog.html" class="menu__link">Blog</a>
-          <a href="contact.html" class="menu__link">Contact</a>
-          <a href="media.html" class="menu__link">Media</a>
-        </nav>
+      <div class="wrapper navigation__content">
+        <div class="navigation__up">
+          <img src="img/logo.svg" alt="Orison" class="navigation__logo">
+          <nav class="navigation__menu">
+            <a href="products.html" class="navigation__link">Products</a>
+            <a href="about.html" class="navigation__link">About</a>
+            <a href="blog.html" class="navigation__link">Blog</a>
+            <a href="contact.html" class="navigation__link">Contact</a>
+            <a href="media.html" class="navigation__link">Media</a>
+          </nav>
+        </div>
         <a href="index.html" class="roundButtons roundButtons--normalCase">Reserve Now</a>
       </div>
     </div>
     <!-- Hero -->
     <header class="mainHero">
       <div class="wrapper mainHero__content"></div>
-      <h1 class="mainHero__titles">
-        <strong class="mainHero__strong">Meet Orison</strong>
-        The first all-in-one,
-        self-installable
-        home battery system.
-      </h1>
-      <a href="products.html" class="roundButtons roundButtons--filled">get it now</a>
-      <a href="products.html" class="roundButtons">more info</a>
+      <div class="wrapper">
+        <h1 class="mainHero__titles">
+          <strong class="mainHero__strong">Meet Orison</strong> <br>
+          The first all-in-one, <br>
+          self-installable <br>
+          home battery system.
+        </h1>
+        <a href="products.html" class="roundButtons roundButtons--filled">get it now</a>
+        <a href="products.html" class="roundButtons">more info</a>
+      </div>
     </header>
     <!-- How it works -->
-    <section class="how">
-      <header class="how__works">
+    <section>
+      <header class="works">
         <h2 class="works__title">how orison works</h2>
         <p class="works__info">Store energy and intelligently power your home or business with the first ever plug-and-play solution. Whether you get your energy from the grid or solar, you can now control when to store it and when to use it.    </p>
-        <video src="medias/ORI-House-Revision_v09-1.mp4" autoplay loop class="works__show"></video>
+        <div class="wrapper">
+          <video src="medias/ORI-House-Revision_v09-1.mp4" autoplay loop class="works__show"></video>
+        </div>
       </header>
-    </section>
-    <!-- Mounting -->
-    <section class="mounting">
-      <div class="wrapper mounting__content">
-        <div class="mounting__block">
-          <h2 class="mounting__title">
-            free standing
-            <strong class="mounting__title--strong">Orison Tower</strong>
-          </h2>
-          <p class="mounting__info">Our free-standing floor Tower adds customizable LED light to your indoor environment and includes a bluetooth speaker for stunning sound.</p>
-          <a href="index.html" class="roundButtons roundButtons--filled">learn more</a>
+      <!-- Mounting -->
+      <section class="mounting">
+        <div class="wrapper mounting__content">
+          <div class="mounting__block">
+            <h2 class="mounting__title">
+              free standing
+              <strong class="mounting__title--strong">Orison Tower</strong>
+            </h2>
+            <p class="mounting__info">Our free-standing floor Tower adds customizable LED light to your indoor environment and includes a bluetooth speaker for stunning sound.</p>
+            <a href="index.html" class="roundButtons roundButtons--filled">learn more</a>
+          </div>
+
+          <div class="mounting__picture">
+            <img src="img/product-two-towers.png" alt="Orison Tower" class="mounting__pic">
+          </div>
+
+          <div class="mounting__block mounting__block--second">
+            <h2 class="mounting__title">
+              wall mounted
+              <strong class="mounting__title--strong">Orison Panel</strong>
+            </h2>
+            <p class="mounting__info">Our Panel system with colorful LED lights is designed to be mounted on any indoor wall.  With tailored skins it can be displayed as art or concealed behind furniture and appliances.</p>
+            <a href="index.html" class="roundButtons roundButtons--filled">learn more</a>
+          </div>
+
+          <div class="mounting__picture mounting__picture--second">
+            <img src="img/product-panel.png" alt="Orison Tower" class="mounting__pic">
+          </div>
         </div>
-        <img src="img/product-two-towers.png" alt="Orison Tower" class="mounting__picture">
-      </div>
-      <div class="wrapper mounting__content">
-        <div class="mounting__block mounting__block--second">
-          <h2 class="mounting__title">
-            wall mounted
-            <strong class="mounting__title--strong">Orison Panel</strong>
-          </h2>
-          <p class="mounting__info">Our Panel system with colorful LED lights is designed to be mounted on any indoor wall.  With tailored skins it can be displayed as art or concealed behind furniture and appliances.</p>
-          <a href="index.html" class="roundButtons roundButtons--filled">learn more</a>
-        </div>
-        <img src="img/product-panel.png" alt="Orison Tower" class="mounting__picture">
-      </div>
+      </section>
     </section>
     <!-- Why choosing -->
     <section class="why">
