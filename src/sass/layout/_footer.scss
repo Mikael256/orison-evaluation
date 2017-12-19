@@ -109,10 +109,11 @@
     min-width: 16rem;
     margin: .4rem 0;
 
-    color: $subTitleGray;
-    &:focus
+    color: white;
+
+    &::placeholder
     {
-      color: white;
+      color: $subTitleGray;
     }
   }
 

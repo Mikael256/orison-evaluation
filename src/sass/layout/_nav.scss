@@ -15,7 +15,7 @@
 
   transition: $mainTransition;
   z-index: 100;
-  
+
   background: linear-gradient($navBack, transparent);
 
   &.scrolled
@@ -48,6 +48,7 @@
   {
     color: white;
 
+    margin: 0 1rem;
     transition: $mainTransition;
     &:hover
     {

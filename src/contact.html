@@ -7,6 +7,9 @@
   <meta name="description" content="Orison's evaluation" />
   <link rel="stylesheet" href="css/style.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.12/featherlight.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" />
   <title>Contact - Orison</title>
 </head>
 <body lang="en">
@@ -14,7 +17,7 @@
   <div class="navigation">
     <div class="wrapper navigation__content">
       <div class="navigation__up">
-        <img src="img/logo.svg" alt="Orison" class="navigation__logo">
+        <a href="index.html"><img src="img/logo.svg" alt="Orison" class="navigation__logo"></a>
         <nav class="navigation__menu">
           <a href="products.html" class="navigation__link">Products</a>
           <a href="about.html" class="navigation__link">About</a>
@@ -40,13 +43,17 @@
       <label class="form__label" for="mail">Email</label>
       <input name="mail" class="form__input" type="mail" placeholder="Email" required autocomplete="off">
       <label class="form__label" for="message">Message</label>
-      <textarea name="message"></textarea>
-      <input type="submit" value="submit" class="roundButtons roundButtons--filled">
+      <textarea name="message" class="form__input" placeholder="Message"></textarea>
+      <input type="submit" value="submit" class="form__button roundButtons roundButtons--filled">
     </form>
   </header>
+  <section class="contactGallery">
+    <h2 class="contactGallery__title">Follow us on FlickR</h2>
+    <div class="contactGallery__carousel">
 
-  Follow us on FlickR
-   La casa di Babbo Natale IMG_1535 CUCKOO or JEWEL WASP TEAL BLUE IXIAS.... Blue Pansy (dark) - Nagaland - Eastern Himalayas  ~1600m Altitude Android Skoda Navigation K7246V (K600) 66728, Church Brampton MY ALSTROEMERIA GARDEN Android Skoda Navigation M305 (Roadnav S160) REFORD GARDENS   |    GIANT HIMALAYAN LILY | CARDIOCRINUM GIGANTEUM   |   LIS GEANT |  REFORD GARDENS  |      LES JARDINS DE METIS  |  METIS   |  GASPESIE  |  QUEBEC  |  CANADA ANDREW COLLINS SAVES THE DAY... 2285253238 Pont del Petroli. Skoda Navigation E8246V (C30) Olivia GREEN STICK FRACTURE in among the GYPSOPHILA FLOWERS Superb Blue Wren   (Malurus cyaneus) Luigi Ptilinopus superbus 1 FOXGLOVE FANTASY Illes Medes. La casa di Babbo Natale IMG_1535 CUCKOO or JEWEL WASP TEAL BLUE IXIAS.... Blue Pansy (dark) - Nagaland - Eastern Himalayas  ~1600m Altitude Android Skoda Navigation K7246V (K600) 66728, Church Brampton MY ALSTROEMERIA GARDEN Android Skoda Navigation M305 (Roadnav S160) REFORD GARDENS   |    GIANT HIMALAYAN LILY | CARDIOCRINUM GIGANTEUM   |   LIS GEANT |  REFORD GARDENS  |      LES JARDINS DE METIS  |  METIS   |  GASPESIE  |  QUEBEC  |  CANADA ANDREW COLLINS SAVES THE DAY... 2285253238 Pont del Petroli. Skoda Navigation E8246V (C30) Olivia GREEN STICK FRACTURE in among the GYPSOPHILA FLOWERS Superb Blue Wren   (Malurus cyaneus) Luigi Ptilinopus superbus 1 FOXGLOVE FANTASY Illes Medes. La casa di Babbo Natale
+    </div>
+  </section>
+
   prevnext
   Find us @GooglePlex HQ
 
@@ -83,7 +90,58 @@
       </div>
     </div>
   </footer>
+  <script id="gallery-template" type="text/x-handlebars-template">
+    <div class="owlCarousel owl-theme">
+      {{#each this}}
+        <div class="item">
+          <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg" alt="carousel item">
+          <!-- <div  style="background-image:url(https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg);background-size: cover" data-big="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_b.jpg"></div> -->
+        </div>
+      {{/each}}
+    </div>
+  </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/main.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.12/featherlight.min.js"></script>
+  <script type="text/javascript">
+    //Load it
+    $.get("https://api.flickr.com/services/rest/?&method=flickr.photos.search&format=json&nojsoncallback=1",
+    {
+      api_key:"732f83ade28b177423a5e100550d137f",
+      tags: "lamp",
+      per_page:25,
+      page:1
+    })
+    .done(function(data)
+    {
+      let $carousel = $(".contactGallery__carousel");
+      console.log(data);
+      var handle = Handlebars.compile($("#gallery-template").html());
+      $carousel.html(handle(data.photos.photo));
+      $carousel.owlCarousel({
+          loop:true,
+          margin:10,
+          nav:true,
+          responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:3
+              },
+              960:{
+                  items:5
+              }
+          }
+      });
+
+    })
+    .fail(function(err)
+    {
+      $(".contactGallery__carousel").html("<h2>Error reaching flickr" + err + "</h2>");
+    });
+  </script>
 </body>
 </html>

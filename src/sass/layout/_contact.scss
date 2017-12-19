@@ -1,0 +1,85 @@
+.form
+{
+  background: $darkGrayBack;
+
+  padding: 12rem 0 8rem;
+
+  display: flex;
+
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  &__title
+  {
+    color: $titleGray;
+
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: center;
+
+    font-size: 1.15rem;
+
+    margin-bottom: 2rem;
+  }
+  &__strong
+  {
+    display: block;
+
+    color: white;
+
+    font-size: 2rem;
+    line-height: 3.5rem;
+    text-align: center;
+    font-weight: normal;
+
+    margin-bottom: 2rem;
+  }
+  &__form
+  {
+    display: flex;
+
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  &__label
+  {
+    font-size: 0;
+  }
+  &__input
+  {
+    width: 100%;
+
+    margin: 0 0 1rem;
+
+    border: none;
+    padding: .7rem;
+
+    color: black;
+
+    &::placeholder
+    {
+      color: $textGray;
+      font-weight: bold;
+    }
+
+    &--half
+    {
+      @media screen and (min-width: 960px)
+      {
+        width: calc(50% - .5rem);
+      }
+    }
+  }
+  &__button
+  {
+    margin: 0 auto;
+  }
+}
+.owlCarousel
+{
+  &__block
+  {
+    height: 12rem;
+  }
+}
