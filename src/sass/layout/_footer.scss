@@ -1,0 +1,131 @@
+.bottom
+{
+  background: $grayBack;
+  padding: 4rem 0;
+
+  &__layout
+  {
+    display: flex;
+
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media screen and (min-width: 960px)
+    {
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+}
+
+.bottomNav
+{
+  display: flex;
+
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 4rem;
+  width: 80%;
+
+  @media screen and (min-width: 960px)
+  {
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    width: 16rem;
+  }
+
+  &__link
+  {
+    color: white;
+    text-transform: uppercase;
+    font-size: .8rem;
+  }
+
+  margin-bottom: 2rem;
+}
+.bottomSocial
+{
+  &__link
+  {
+    position: relative;
+    color: white;
+
+    margin: 0 .7rem;
+    &:hover
+    {
+      color: white;
+      text-decoration: none;
+    }
+    &:after
+    {
+      content: "";
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 1.9rem;
+      height: 1.9rem;
+
+      border: 1px solid white;
+      border-radius: 50%;
+    }
+  }
+
+  margin-bottom: 2rem;
+}
+.bottomSignUp
+{
+  display: flex;
+
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  @media screen and (min-width: 960px){
+    align-items: flex-start;
+  }
+
+  &__title
+  {
+    color: white;
+    text-transform: uppercase;
+    font-size: .6rem;
+  }
+  &__input
+  {
+    font-size: .6rem;
+
+    background: transparent;
+    border: 1px solid white;
+    padding: .3rem;
+    min-width: 16rem;
+    margin: .4rem 0;
+
+    color: $subTitleGray;
+    &:focus
+    {
+      color: white;
+    }
+  }
+
+  margin-bottom: 2rem;
+}
+.bottom__copyright
+{
+  text-align: center;
+
+  @media screen and (min-width: 960px)
+  {
+    text-align: right;
+  }
+
+  color: $subTitleGray;
+}

@@ -1,3 +1,4 @@
+// hero
 .mainHero
 {
   width: 100%;
@@ -25,7 +26,7 @@
     font-weight: normal;
   }
 }
-
+// How it works
 .works
 {
   background: $grayBack;
@@ -106,13 +107,24 @@
 
     display: flex;
 
-    flex-flow: row wrap;
-    justify-content: space-between;
+    flex-flow: column;
+    justify-content: flex-start;
     align-items: center;
+
+    @media screen and (min-width: 960px)
+    {
+      flex-flow: row wrap;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
   &__block, &__picture
   {
-    max-width: calc(50% - 4rem);
+    width: calc(100% - 2rem);
+    @media screen and (min-width: 960px)
+    {
+      max-width: calc(50% - 4rem);
+    }
   }
   &__picture
   {
@@ -134,5 +146,261 @@
     {
       order: 2;
     }
+  }
+}
+// Why choosing
+.why
+{
+  display: flex;
+
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 8rem 0;
+
+  &__title
+  {
+    color: $titleGray;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-weight: bold;
+
+    font-size: 1.15rem;
+
+    margin-bottom: 2rem;
+  }
+  &__info
+  {
+    font-size: 2rem;
+    margin-bottom: 5rem;
+  }
+  &__grid
+  {
+    display: flex;
+
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+.whyElement
+{
+  display: flex;
+
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  margin-bottom: 2rem;
+
+  &:hover
+  {
+    text-decoration: none;
+  }
+
+  @media screen and (min-width: 960px)
+  {
+    width: calc(33% - 4rem);
+    margin-bottom: 2rem;
+  }
+  &__picture
+  {
+    width: 85px;
+    height: 85px;
+
+    margin-bottom: 2rem;
+  }
+  &__title
+  {
+    color: black;
+    text-transform: uppercase;
+    font-weight: normal;
+
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+  }
+  &__info
+  {
+    text-align: center;
+
+    font-size: 1.14rem;
+    color: $textGray;
+    line-height: 1.6rem;
+  }
+}
+
+//Tiles
+
+.properties
+{
+  display: flex;
+
+  flex-flow: column;
+
+  @media screen and (min-width: 960px)
+  {
+    flex-flow: row wrap;
+  }
+
+  &__block
+  {
+    width: 100%;
+
+    @media screen and (min-width: 960px)
+    {
+      width: 50%;
+    }
+    background: $grayBack;
+
+    &--content
+    {
+      padding: 6rem 0;
+
+      display: flex;
+
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+    }
+    &--last
+    {
+      @media screen and (min-width: 960px)
+      {
+        order: 1;
+      }
+    }
+  }
+  &__title, &__info
+  {
+    width: 60%;
+  }
+  &__title
+  {
+    color: white;
+    font-weight: normal;
+
+    font-size: 2.9rem;
+    line-height: 2.9rem;
+  }
+  &__info
+  {
+    color: $subTitleGray;
+    line-height: 1.8rem;
+    font-size: 1.15rem;
+  }
+  &__picture
+  {
+    height: 25rem;
+    @media screen and (min-width: 960px)
+    {
+      height: auto;
+    }
+    &--first
+    {
+      background: url("../img/Orison-Panel-Series.jpg") center top;
+      background-size: cover;
+    }
+    &--sec
+    {
+      background: url("../img/Orison-Tower-Cord.jpg") center top;
+      background-size: cover;
+    }
+  }
+}
+
+//power
+.power
+{
+  display: flex;
+
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 8rem 0;
+
+  background: $darkGrayBack;
+
+  &__title
+  {
+    color: white;
+    font-weight: normal;
+
+    font-size: 2.9rem;
+    margin: 2rem 0 0;
+  }
+  &__info
+  {
+    color: $subTitleGray;
+    font-size: 1.4rem;
+    margin: 1.5rem;
+  }
+}
+//Press
+.press
+{
+  background: $titleGray;
+  padding: 8rem 0;
+
+  display: flex;
+
+  flex-flow: column;
+  align-items: center;
+
+  &__inside
+  {
+    display: flex;
+
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media screen and (min-width: 960px)
+    {
+      flex-flow: row;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+  }
+}
+.pressOpinion
+{
+  display: flex;
+
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 10rem;
+
+  margin-bottom: 2rem;
+
+  @media screen and (min-width: 960px)
+  {
+    width: calc(33% - 2rem);
+    height: 15rem;
+  }
+
+
+
+  &:hover
+  {
+    text-decoration: none;
+  }
+  &__picture
+  {
+    width: 30%;
+    @media screen and (min-width: 960px)
+    {
+      width: 70%;
+    }
+  }
+  &__quote
+  {
+    text-align: center;
+    font-size: 1.15rem;
+    line-height: 2rem;
+    color: black;
   }
 }

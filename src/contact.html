@@ -10,18 +10,21 @@
 <body lang="en">
   <!-- navigation -->
   <div class="navigation">
-    <div class="wrapper">
-      <img src="img/logo.svg" alt="Orison">
-      <nav class="navigation__menu">
-        <a href="products.html" class="menu__link">Products</a>
-        <a href="about.html" class="menu__link">About</a>
-        <a href="blog.html" class="menu__link">Blog</a>
-        <a href="contact.html" class="menu__link">Contact</a>
-        <a href="media.html" class="menu__link">Media</a>
-      </nav>
+    <div class="wrapper navigation__content">
+      <div class="navigation__up">
+        <img src="img/logo.svg" alt="Orison" class="navigation__logo">
+        <nav class="navigation__menu">
+          <a href="products.html" class="navigation__link">Products</a>
+          <a href="about.html" class="navigation__link">About</a>
+          <a href="blog.html" class="navigation__link">Blog</a>
+          <a href="contact.html" class="navigation__link">Contact</a>
+          <a href="media.html" class="navigation__link">Media</a>
+        </nav>
+      </div>
       <a href="index.html" class="roundButtons roundButtons--normalCase">Reserve Now</a>
     </div>
   </div>
+  <!-- Form -->
   <header class="form">
     <h1 class="form__title">
       contact orison
@@ -49,27 +52,28 @@
   Données cartographiques ©2017 Google
   Conditions d'utilisation
   Signaler une erreur cartographique
-  
+
   <!-- footer -->
   <footer class="bottom">
-    <div class="wrapper">
+    <div class="wrapper bottom__layout">
       <nav class="bottomNav">
         <a href="products.html" class="bottomNav__link">Products</a>
         <a href="about.html" class="bottomNav__link">About</a>
         <a href="blog.html" class="bottomNav__link">Blog</a>
         <a href="contact.html" class="bottomNav__link">Contact</a>
+        <a href="faqs.html" class="bottomNav__link">Faqs</a>
         <a href="media.html" class="bottomNav__link">Media</a>
       </nav>
       <nav class="bottomSocial">
-        <a href="https://www.facebook.com/OrisonEnergy/" class="bottomSocial__link fa fa-facebook">Facebook</a>
-        <a href="https://twitter.com/orisonenergy" class="bottomSocial__link fa fa-twitter">Twitter</a>
-        <a href="https://www.instagram.com/orisonenergy/" class="bottomSocial__link fa fa-instagram">Instagram</a>
-        <a href="https://www.linkedin.com/company/orison" class="bottomSocial__link fa fa-linkedin">LinkedIn</a>
+        <a href="https://www.facebook.com/OrisonEnergy/" class="bottomSocial__link fa fa-facebook"></a>
+        <a href="https://twitter.com/orisonenergy" class="bottomSocial__link fa fa-twitter"></a>
+        <a href="https://www.instagram.com/orisonenergy/" class="bottomSocial__link fa fa-instagram"></a>
+        <a href="https://www.linkedin.com/company/orison" class="bottomSocial__link fa fa-linkedin"></a>
       </nav>
       <div class="bottomSignUp">
-        <h3 class="bottomSignUp__title">sign up for updates</h3>
-        <input type="email" placeholder="Email" autocomplete="off">
-        <button class="roundButtons--filled">submit</button>
+        <small class="bottomSignUp__title">sign up for updates</small>
+        <input type="email" placeholder="Email" autocomplete="off" class="bottomSignUp__input">
+        <button class="roundButtons roundButtons--filled">submit</button>
       </div>
       <div class="bottom__copyright">
         ©2016 Orison. <br>
