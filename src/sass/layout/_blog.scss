@@ -1,0 +1,119 @@
+.blogHead
+{
+  position: relative;
+  height: 50rem;
+
+  display: flex;
+
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title
+  {
+    color: white;
+    text-align: center;
+    font-weight: normal;
+    font-size: 2.9rem;
+  }
+  &__info
+  {
+    color: white;
+    margin: 2rem 0;
+  }
+}
+.blog
+{
+  &__layout
+  {
+    margin-top: 8rem;
+
+    display: flex;
+
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media screen and (min-width: 960px)
+    {
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    &__articles
+    {
+      margin-right: 2rem;
+
+      display: flex;
+
+      flex-flow: column;
+      justify-content: flex-start;
+      align-items: left;
+    }
+  }
+  &__sides
+  {
+    width: 100%;
+    @media screen and (min-width: 960px)
+    {
+      width: 30rem;
+    }
+  }
+}
+.article
+{
+  margin-bottom: 3rem;
+  margin-right: 2rem;
+
+  &__title
+  {
+    color: $darkGrayBack;
+    font-size: 1.7rem;
+
+    &:hover{
+      color: black;
+      text-decoration: none;
+    }
+  }
+  &__date
+  {
+    display: block;
+    margin: 1rem 0;
+  }
+  &__date, &__link
+  {
+    color: $titleGray;
+  }
+
+  &__link
+  {
+    &:hover{
+      color: black;
+      text-decoration: none;
+    }
+  }
+}
+
+.side
+{
+  &__block
+  {
+    border: 1px solid $sideBorder;
+    padding: 1rem 1.8rem;
+    margin-bottom: 1rem;
+  }
+  &__search
+  {
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba($sideBorder, .5);
+    width: 100%;    
+  }
+  &__title, &__search::placeholder
+  {
+    text-transform: uppercase;
+    font-size: .85rem;
+    color: black;
+    font-weight: bold;
+  }
+}

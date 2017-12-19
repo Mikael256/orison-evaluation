@@ -27,37 +27,37 @@
     </div>
   </div>
   <!-- header -->
-  <header class="blogHead">
-    <h1 class="blogHead__title">Orison Selected as a Finalist for CONNECT’s 30th Annual Most Innovative New Product Awards</h1>
+  <header class="blogHead" data-parallax="400" data-back="img/blog-cvr-9-26.jpg">
+    <h1 class="blogHead__title wrapper">Orison Selected as a Finalist for CONNECT’s 30th Annual Most Innovative New Product Awards</h1>
     <p class="blogHead__date">November 15, 2017</p>
     <a href="http://www.olivier-ceressia.be/clients/eval2017/orison-selected-finalist-connects-30th-annual-innovative-new-product-awards/index.html" class="roundButtons roundButtons--filled">read article</a>
   </header>
   <!-- main -->
   <main class="wrapper blog__layout">
     <div class="blog__articles">
-
       <article class="article">
         <img src="img/blog-cvr-9-26-500x300.jpg" alt="most innovative product award  finalist 2017">
-        <h2 class="article__title">Orison Selected as a Finalist for CONNECT’s 30th Annual Most Innovative New Product Awards</h2>
-        <span class="article__date">November 15, 2017 by Melanie Venter</span>
+        <h2 class="article__title"><a href="single.html" class="article__title">Orison Selected as a Finalist for CONNECT’s 30th Annual Most Innovative New Product Awards</a></h2>
+        <span class="article__date">November 15, 2017 by <a href="http://www.olivier-ceressia.be/clients/eval2017/author/melanie-venter/index.html" class="article__link">Melanie Venter</a></span>
         <p class="article__content">Orison has been selected as a finalist in CONNECT’s Most Innovative New Product Awards in its Cleantech, Sustainability, and Energy category . CONNECT, a premier innovation company accelerator in San Diego that creates and scales great companies in the technology and life sciences sectors, continues its thirty-year tradition of celebrating innovation leaders in the local San […]</p>
         <a href="single.html" class="roundButtons roundButtons--filled">read more</a>
       </article>
       <article class="article">
         <img src="img/blog-post-4-12-500x300.jpg" alt="high voltage">
-        <h2 class="article__title">Preparing for Utility Rate Changes: How Orison Can Help You</h2>
-        <span class="article__date">April 13, 2017 by Emily Jiles</span>
+        <h2 class="article__title"><a href="single.html" class="article__title">Preparing for Utility Rate Changes: How Orison Can Help You</a></h2>
+        <span class="article__date">April 13, 2017 by <a href="http://www.olivier-ceressia.be/clients/eval2017/author/emily-jiles/index.html" class="article__link">Emily Jiles</a></span>
         <p class="article__content">If you’re anything like me, you usually think of what your electricity usage is costing you about once a month—when you get your bill in the mail. After opening your bill, you immediately go on a campaign to reduce your overall usage…starting by telling everyone in the house to turn off the lights! In some […]</p>
         <a href="single.html" class="roundButtons roundButtons--filled">read more</a>
       </article>
       <article class="article">
         <img src="img/blog-3-24-500x300.jpg" alt="most innovative product award  finalist 2017">
-        <h2 class="article__title">What We’re Reading This Week: Friday, March 24</h2>
-        <span class="article__date">March 24, 2017 by Emily Jiles</span>
+        <h2 class="article__title"><a href="single.html" class="article__title">What We’re Reading This Week: Friday, March 24</a></h2>
+        <span class="article__date">March 24, 2017 by <a href="http://www.olivier-ceressia.be/clients/eval2017/author/emily-jiles/index.html" class="article__link">Emily Jiles</a></span>
         <p class="article__content">ENERGY STORAGE  Energy Manager: Chicago Suburb Selected for Community Energy Storage Pilot In the Chicago suburb of Beecher, Illinois, Commonwealth Edison has launched a Community Energy Storage (CES) pilot to investigate the value of battery technology to reduce the impact of power outages in residential areas where customers experience service interruptions, particularly during extreme weather […]</p>
         <a href="single.html" class="roundButtons roundButtons--filled">read more</a>
       </article>
     </div>
+    <!-- Side -->
     <aside class="blog__sides">
       <section class="side__block">
         <input type="text" name="search" placeholder="SEARCH" class="side__search">
@@ -164,7 +164,56 @@
       </div>
     </div>
   </footer>
+
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/main.min.js"></script>
+  <script type="text/javascript">
+      // parallax ------------
+
+    var $elements = $(".blogHead");
+
+    // build elements
+    $elements.each(function(i){
+    var $this = $(this);
+    $this.css({"background": "none", "overflow": "hidden"});
+    $this.prepend('<div class="parallax p' + i + '"></div>');
+    var $target = $(".p" + i);
+    $target.css("background", "url(" + $this.data("back") + ") center");
+    });
+
+    // to be called per frames (scroll and resizes)
+    function updateParralax()
+    {
+      $elements.each(function(i)
+      {
+        var $this = $(this);
+
+        var $target = $(".p" + i);
+        var distance = $window.scrollTop() - $target.offset().top;
+        var quantity = distance / $window.height();
+        var parallax = $this.data("parallax");
+        var height = $this.data("height");
+        var heightDiff = height - $this.height();
+
+        var offset = quantity * parallax;
+        // var scale = (parallax + heightDiff) / height + 1;
+        var scale = 1;
+
+        if ($this.width() * scale < $target.width())
+        {
+          scale = $target.width() / $this.width();
+        }
+        $target.css("transform",
+          "translateY(" + offset + "px) scale(" + scale + ")");
+        $target.css("background-size", "cover");
+        $target.css("z-index", -1);
+      });
+    }
+    $(window).scroll(function()
+    {
+      updateParralax();
+    });
+    updateParralax();
+  </script>
 </body>
 </html>
