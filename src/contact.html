@@ -49,19 +49,15 @@
   </header>
   <section class="contactGallery">
     <h2 class="contactGallery__title">Follow us on FlickR</h2>
-    <div class="contactGallery__carousel">
+    <div class="contactGallery__carousel owl-carousel">
+    </div>
+  </section>
+  <section class="googleMap">
+    <h2 class="googleMap__title">Find us @GooglePlex HQ</h2>
+    <div class="googleMap__map" id="map">
 
     </div>
   </section>
-
-  prevnext
-  Find us @GooglePlex HQ
-
-
-  Données cartographiques ©2017 Google
-  Conditions d'utilisation
-  Signaler une erreur cartographique
-
   <!-- footer -->
   <footer class="bottom">
     <div class="wrapper bottom__layout">
@@ -94,8 +90,8 @@
     <div class="owlCarousel owl-theme">
       {{#each this}}
         <div class="item">
-          <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg" alt="carousel item">
-          <!-- <div  style="background-image:url(https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg);background-size: cover" data-big="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_b.jpg"></div> -->
+          <a class="feather" href="#" data-featherlight="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_b.jpg">
+          <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg" alt="carousel item"></a>
         </div>
       {{/each}}
     </div>
@@ -106,6 +102,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.12/featherlight.min.js"></script>
   <script type="text/javascript">
+    let $carousel = $(".owl-carousel");
     //Load it
     $.get("https://api.flickr.com/services/rest/?&method=flickr.photos.search&format=json&nojsoncallback=1",
     {
@@ -136,12 +133,39 @@
               }
           }
       });
-
+      // $('.owl-carousel').find('.owl-nav').removeClass('disabled');
+      // $('.owl-carousel').on('changed.owl.carousel', function(event) {
+      // 	$(this).find('.owl-nav').removeClass('disabled');
+      // });
+      $(".feather").featherlight();
     })
     .fail(function(err)
     {
       $(".contactGallery__carousel").html("<h2>Error reaching flickr" + err + "</h2>");
     });
+
+    //maps
+
+    function initMap()
+    {
+      let plex = {lat: 37.4218039, lng: -122.0883169};
+      let map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 16,
+              center: plex,
+              gestureHandling: 'cooperative',
+              styles: [ { "elementType": "geometry", "stylers": [ { "color": "#ebe3cd" } ] }, { "elementType": "labels.text.fill", "stylers": [ { "color": "#523735" } ] }, { "elementType": "labels.text.stroke", "stylers": [ { "color": "#f5f1e6" } ] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [ { "color": "#c9b2a6" } ] }, { "featureType": "administrative.land_parcel", "elementType": "geometry.stroke", "stylers": [ { "color": "#dcd2be" } ] }, { "featureType": "administrative.land_parcel", "elementType": "labels.text.fill", "stylers": [ { "color": "#ae9e90" } ] }, { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [ { "color": "#dfd2ae" } ] }, { "featureType": "poi", "elementType": "geometry", "stylers": [ { "color": "#dfd2ae" } ] }, { "featureType": "poi", "elementType": "labels.text.fill", "stylers": [ { "color": "#93817c" } ] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [ { "color": "#a5b076" } ] }, { "featureType": "poi.park", "elementType": "labels.text.fill", "stylers": [ { "color": "#447530" } ] }, { "featureType": "road", "elementType": "geometry", "stylers": [ { "color": "#f5f1e6" } ] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [ { "color": "#fdfcf8" } ] }, { "featureType": "road.highway", "elementType": "geometry", "stylers": [ { "color": "#f8c967" } ] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [ { "color": "#e9bc62" } ] }, { "featureType": "road.highway.controlled_access", "elementType": "geometry", "stylers": [ { "color": "#e98d58" } ] }, { "featureType": "road.highway.controlled_access", "elementType": "geometry.stroke", "stylers": [ { "color": "#db8555" } ] }, { "featureType": "road.local", "elementType": "labels.text.fill", "stylers": [ { "color": "#806b63" } ] }, { "featureType": "transit.line", "elementType": "geometry", "stylers": [ { "color": "#dfd2ae" } ] }, { "featureType": "transit.line", "elementType": "labels.text.fill", "stylers": [ { "color": "#8f7d77" } ] }, { "featureType": "transit.line", "elementType": "labels.text.stroke", "stylers": [ { "color": "#ebe3cd" } ] }, { "featureType": "transit.station", "elementType": "geometry", "stylers": [ { "color": "#dfd2ae" } ] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [ { "color": "#b9d3c2" } ] }, { "featureType": "water", "elementType": "labels.text.fill", "stylers": [ { "color": "#92998d" } ] } ]
+            });
+
+
+      let plexMark = new google.maps.Marker({
+              position: plex,
+              map: map,
+              title: 'Orison',
+              icon: "img/marker-orison.png"
+            });
+    }
+
   </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9wIAFI-JC6Ocl118w1AJGvNvoylYF_cE&callback=initMap"></script>
 </body>
 </html>

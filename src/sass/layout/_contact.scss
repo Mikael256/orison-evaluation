@@ -83,3 +83,25 @@
     height: 12rem;
   }
 }
+.googleMap
+{
+  display: flex;
+
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding: 8rem 0;
+  &__title
+  {
+    font-size: 2.9rem;
+    font-weight: normal;
+    color: $darkGrayBack;
+    margin-bottom: 2rem;
+  }
+  &__map
+  {
+    height: 30rem;
+    width: 100%;
+  }
+}
