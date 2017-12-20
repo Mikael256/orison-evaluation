@@ -24,9 +24,15 @@
           <a href="blog.html" class="navigation__link">Blog</a>
           <a href="contact.html" class="navigation__link">Contact</a>
           <a href="media.html" class="navigation__link">Media</a>
+          <a href="index.html" class="roundButtons roundButtons--normalCase navigation__button--inside">Reserve Now</a>
         </nav>
+        <div class="burger">
+          <div class="burger__bar"></div>
+          <div class="burger__bar"></div>
+          <div class="burger__bar"></div>
+        </div>
       </div>
-      <a href="index.html" class="roundButtons roundButtons--normalCase">Reserve Now</a>
+      <a href="index.html" class="roundButtons roundButtons--normalCase navigation__button">Reserve Now</a>
     </div>
   </div>
   <!-- Form -->
@@ -38,7 +44,7 @@
     <form class="form__form wrapper">
       <label class="form__label" for="first">First Name</label>
       <input name="first" class="form__input form__input--half" type="text" placeholder="First Name" required autocomplete="off">
-      <label class="form__label" for="name">Last Name</label>
+      <label class="form__label form__label--center" for="name">Last Name</label>
       <input name="name" class="form__input form__input--half" type="text" placeholder="Last Name" required autocomplete="off">
       <label class="form__label" for="mail">Email</label>
       <input name="mail" class="form__input" type="mail" placeholder="Email" required autocomplete="off">
@@ -47,11 +53,13 @@
       <input type="submit" value="submit" class="form__button roundButtons roundButtons--filled">
     </form>
   </header>
+  <!-- carousel -->
   <section class="contactGallery">
-    <h2 class="contactGallery__title">Follow us on FlickR</h2>
-    <div class="contactGallery__carousel owl-carousel">
+    <h2 class="googleMap__title">Follow us on FlickR</h2>
+    <div class="contactGallery__carousel owl-carousel owl-theme wrapper">
     </div>
   </section>
+  <!-- map -->
   <section class="googleMap">
     <h2 class="googleMap__title">Find us @GooglePlex HQ</h2>
     <div class="googleMap__map" id="map">
@@ -87,14 +95,12 @@
     </div>
   </footer>
   <script id="gallery-template" type="text/x-handlebars-template">
-    <div class="owlCarousel owl-theme">
       {{#each this}}
         <div class="item">
-          <a class="feather" href="#" data-featherlight="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_b.jpg">
-          <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg" alt="carousel item"></a>
+          <a class="feather owlCarousel__block" href="#" data-featherlight="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_b.jpg" style="background-image:url(https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg);background-size: cover">
+          <!-- <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg" alt="carousel item">--></a>
         </div>
       {{/each}}
-    </div>
   </script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript" src="js/main.min.js"></script>
