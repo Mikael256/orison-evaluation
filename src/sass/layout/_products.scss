@@ -1,0 +1,27 @@
+.mounting
+{
+  &--prod
+  {
+    display: flex;
+
+    flex-flow: column;
+  }
+  &__share
+  {
+    margin-top: 2rem;
+
+    display: flex;
+
+    flex-flow: row;
+
+    &Title
+    {
+      color: white;
+      font-weight: normal;
+    }
+  }
+  &__social
+  {
+
+  }
+}
