@@ -10,9 +10,10 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.12/featherlight.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" />
+  <link rel="stylesheet" href="css/easyReveal.min.css">
   <title>Contact - Orison</title>
 </head>
-<body lang="en">
+<body lang="en" data-easyreveal="true" data-revealback="true">
   <!-- navigation -->
   <div class="navigation">
     <div class="wrapper navigation__content">
@@ -55,14 +56,14 @@
   </header>
   <!-- carousel -->
   <section class="contactGallery">
-    <h2 class="googleMap__title">Follow us on FlickR</h2>
-    <div class="contactGallery__carousel owl-carousel owl-theme wrapper">
+    <h2 class="easyReveal googleMap__title">Follow us on FlickR</h2>
+    <div class="easyReveal contactGallery__carousel owl-carousel owl-theme wrapper">
     </div>
   </section>
   <!-- map -->
   <section class="googleMap">
-    <h2 class="googleMap__title">Find us @GooglePlex HQ</h2>
-    <div class="googleMap__map" id="map">
+    <h2 class="easyReveal googleMap__title">Find us @GooglePlex HQ</h2>
+    <div class="easyReveal googleMap__map" id="map">
 
     </div>
   </section>
@@ -172,6 +173,7 @@
     }
 
   </script>
+  <script type="text/javascript" src="js/easyReveal.min.js"></script>
   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9wIAFI-JC6Ocl118w1AJGvNvoylYF_cE&callback=initMap"></script>
 </body>
 </html>
