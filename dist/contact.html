@@ -1,0 +1,67 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta name="description" content="Orison's evaluation"><link rel="stylesheet" href="css/style.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.12/featherlight.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css"><link rel="stylesheet" href="css/easyReveal.min.css"><title>Contact - Orison</title></head><body lang="en" data-easyreveal="true" data-revealback="true"><!-- navigation --><div class="navigation"><div class="wrapper navigation__content"><div class="navigation__up"><a href="index.html"><img src="img/logo.svg" alt="Orison" class="navigation__logo"></a><nav class="navigation__menu"><a href="products.html" class="navigation__link">Products</a> <a href="about.html" class="navigation__link">About</a> <a href="blog.html" class="navigation__link">Blog</a> <a href="contact.html" class="navigation__link">Contact</a> <a href="media.html" class="navigation__link">Media</a> <a href="index.html" class="roundButtons roundButtons--normalCase navigation__button--inside">Reserve Now</a></nav><div class="burger"><div class="burger__bar"></div><div class="burger__bar"></div><div class="burger__bar"></div></div></div><a href="index.html" class="roundButtons roundButtons--normalCase navigation__button">Reserve Now</a></div></div><!-- Form --><header class="form"><h1 class="form__title">contact orison <strong class="form__strong">We'd love to hear from you.</strong></h1><form class="form__form wrapper"><label class="form__label" for="first">First Name</label><input name="first" class="form__input form__input--half" type="text" placeholder="First Name" required autocomplete="off"><label class="form__label form__label--center" for="name">Last Name</label><input name="name" class="form__input form__input--half" type="text" placeholder="Last Name" required autocomplete="off"><label class="form__label" for="mail">Email</label><input name="mail" class="form__input" type="mail" placeholder="Email" required autocomplete="off"><label class="form__label" for="message">Message</label><textarea name="message" class="form__input" placeholder="Message"></textarea><input type="submit" value="submit" class="form__button roundButtons roundButtons--filled"></form></header><!-- carousel --><section class="contactGallery"><h2 class="easyReveal googleMap__title">Follow us on FlickR</h2><div class="easyReveal contactGallery__carousel owl-carousel owl-theme wrapper"></div></section><!-- map --><section class="googleMap"><h2 class="easyReveal googleMap__title">Find us @GooglePlex HQ</h2><div class="easyReveal googleMap__map" id="map"></div></section><!-- footer --><footer class="bottom"><div class="wrapper bottom__layout"><nav class="bottomNav"><a href="products.html" class="bottomNav__link">Products</a> <a href="about.html" class="bottomNav__link">About</a> <a href="blog.html" class="bottomNav__link">Blog</a> <a href="contact.html" class="bottomNav__link">Contact</a> <a href="faqs.html" class="bottomNav__link">Faqs</a> <a href="media.html" class="bottomNav__link">Media</a></nav><nav class="bottomSocial"><a href="https://www.facebook.com/OrisonEnergy/" class="bottomSocial__link fa fa-facebook"></a> <a href="https://twitter.com/orisonenergy" class="bottomSocial__link fa fa-twitter"></a> <a href="https://www.instagram.com/orisonenergy/" class="bottomSocial__link fa fa-instagram"></a> <a href="https://www.linkedin.com/company/orison" class="bottomSocial__link fa fa-linkedin"></a></nav><div class="bottomSignUp"><small class="bottomSignUp__title">sign up for updates</small> <input type="email" placeholder="Email" autocomplete="off" class="bottomSignUp__input"> <button class="roundButtons roundButtons--filled">submit</button></div><div class="bottom__copyright">©2016 Orison.<br>All rights reserved.</div></div></footer><script id="gallery-template" type="text/x-handlebars-template">{{#each this}}
+        <div class="item">
+          <a class="feather owlCarousel__block" href="#" data-featherlight="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_b.jpg" style="background-image:url(https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg);background-size: cover">
+          <!-- <img src="https://farm{{farm}}.staticflickr.com/{{server}}/{{id}}_{{secret}}_z.jpg" alt="carousel item">--></a>
+        </div>
+      {{/each}}</script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script><script type="text/javascript" src="js/main.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/featherlight/1.7.12/featherlight.min.js"></script><script type="text/javascript">let $carousel = $(".owl-carousel");
+    //Load it
+    $.get("https://api.flickr.com/services/rest/?&method=flickr.photos.search&format=json&nojsoncallback=1",
+    {
+      api_key:"732f83ade28b177423a5e100550d137f",
+      tags: "lamp",
+      per_page:25,
+      page:1
+    })
+    .done(function(data)
+    {
+      let $carousel = $(".contactGallery__carousel");
+      console.log(data);
+      var handle = Handlebars.compile($("#gallery-template").html());
+      $carousel.html(handle(data.photos.photo));
+      $carousel.owlCarousel({
+          loop:true,
+          margin:10,
+          nav:true,
+          responsive:{
+              0:{
+                  items:1
+              },
+              600:{
+                  items:3
+              },
+              960:{
+                  items:5
+              }
+          }
+      });
+      // $('.owl-carousel').find('.owl-nav').removeClass('disabled');
+      // $('.owl-carousel').on('changed.owl.carousel', function(event) {
+      // 	$(this).find('.owl-nav').removeClass('disabled');
+      // });
+      $(".feather").featherlight();
+    })
+    .fail(function(err)
+    {
+      $(".contactGallery__carousel").html("<h2>Error reaching flickr" + err + "</h2>");
+    });
+
+    //maps
+
+    function initMap()
+    {
+      let plex = {lat: 37.4218039, lng: -122.0883169};
+      let map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 16,
+              center: plex,
+              gestureHandling: 'cooperative',
+              styles: [ { "elementType": "geometry", "stylers": [ { "color": "#ebe3cd" } ] }, { "elementType": "labels.text.fill", "stylers": [ { "color": "#523735" } ] }, { "elementType": "labels.text.stroke", "stylers": [ { "color": "#f5f1e6" } ] }, { "featureType": "administrative", "elementType": "geometry.stroke", "stylers": [ { "color": "#c9b2a6" } ] }, { "featureType": "administrative.land_parcel", "elementType": "geometry.stroke", "stylers": [ { "color": "#dcd2be" } ] }, { "featureType": "administrative.land_parcel", "elementType": "labels.text.fill", "stylers": [ { "color": "#ae9e90" } ] }, { "featureType": "landscape.natural", "elementType": "geometry", "stylers": [ { "color": "#dfd2ae" } ] }, { "featureType": "poi", "elementType": "geometry", "stylers": [ { "color": "#dfd2ae" } ] }, { "featureType": "poi", "elementType": "labels.text.fill", "stylers": [ { "color": "#93817c" } ] }, { "featureType": "poi.park", "elementType": "geometry.fill", "stylers": [ { "color": "#a5b076" } ] }, { "featureType": "poi.park", "elementType": "labels.text.fill", "stylers": [ { "color": "#447530" } ] }, { "featureType": "road", "elementType": "geometry", "stylers": [ { "color": "#f5f1e6" } ] }, { "featureType": "road.arterial", "elementType": "geometry", "stylers": [ { "color": "#fdfcf8" } ] }, { "featureType": "road.highway", "elementType": "geometry", "stylers": [ { "color": "#f8c967" } ] }, { "featureType": "road.highway", "elementType": "geometry.stroke", "stylers": [ { "color": "#e9bc62" } ] }, { "featureType": "road.highway.controlled_access", "elementType": "geometry", "stylers": [ { "color": "#e98d58" } ] }, { "featureType": "road.highway.controlled_access", "elementType": "geometry.stroke", "stylers": [ { "color": "#db8555" } ] }, { "featureType": "road.local", "elementType": "labels.text.fill", "stylers": [ { "color": "#806b63" } ] }, { "featureType": "transit.line", "elementType": "geometry", "stylers": [ { "color": "#dfd2ae" } ] }, { "featureType": "transit.line", "elementType": "labels.text.fill", "stylers": [ { "color": "#8f7d77" } ] }, { "featureType": "transit.line", "elementType": "labels.text.stroke", "stylers": [ { "color": "#ebe3cd" } ] }, { "featureType": "transit.station", "elementType": "geometry", "stylers": [ { "color": "#dfd2ae" } ] }, { "featureType": "water", "elementType": "geometry.fill", "stylers": [ { "color": "#b9d3c2" } ] }, { "featureType": "water", "elementType": "labels.text.fill", "stylers": [ { "color": "#92998d" } ] } ]
+            });
+
+
+      let plexMark = new google.maps.Marker({
+              position: plex,
+              map: map,
+              title: 'Orison',
+              icon: "img/marker-orison.png"
+            });
+    }</script><script type="text/javascript" src="js/easyReveal.min.js"></script><script async defer="defer" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA9wIAFI-JC6Ocl118w1AJGvNvoylYF_cE&callback=initMap"></script></body></html>

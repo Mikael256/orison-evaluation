@@ -5,6 +5,12 @@
     display: flex;
 
     flex-flow: column;
+    overflow: hidden;
+
+    @media screen and (min-width: 960px)
+    {
+      padding-top: 20rem;
+    }
   }
   &__share
   {
@@ -13,15 +19,331 @@
     display: flex;
 
     flex-flow: row;
+    align-items: center;
 
     &Title
     {
       color: white;
       font-weight: normal;
+      margin: 0;
+      margin-right: .25rem;
     }
   }
   &__social
   {
+    padding: 0 .5rem;
+    font-size: 1.7rem;
+    color: $textGray;
 
+    transition: $mainTransition;
+
+    &:hover
+    {
+      color: $titleGray;
+      text-decoration: none;
+
+    }
+  }
+  &__picture--prod
+  {
+    height: 40rem;
+    margin-bottom: 8rem;
+
+    &First
+    {
+      height: auto;
+      width: 30rem;
+      @media screen and (min-width: 960px)
+      {
+        display: block;
+        position: absolute;
+
+        top: 50%;
+        right: -10rem;
+
+        height: 200%;
+        width: auto;
+        transform: translateY(-50%);
+      }
+      @media screen and (min-width: 1600px)
+      {
+        right: -30rem;
+      }
+    }
+  }
+  &__info--prod
+  {
+    text-align: center;
+    @media screen and (min-width: 960px)
+    {
+      text-align: left;
+    }
+  }
+  &__block--prod, &__title--prod
+  {
+    display: flex;
+
+    flex-flow: column;
+    align-items: center;
+    @media screen and (min-width: 960px)
+    {
+      align-items: left;
+    }
+  }
+  &__content--prod
+  {
+    position: relative;
+    margin-top: 8rem;
+  }
+}
+
+.installation
+{
+  padding: 8rem 0;
+
+  display: flex;
+
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__grid
+  {
+    display: flex;
+
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    @media screen and (min-width: 960px)
+    {
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+
+  }
+  &Element
+  {
+    display: flex;
+
+    flex-flow: column;
+    justify-content: space-around;
+    align-items: center;
+
+    background: $shipBack;
+
+    width: 100%;
+
+    @media screen and (min-width: 960px)
+    {
+      width: calc(33% - 1.5rem);
+    }
+
+    &__picture
+    {
+      width: 12rem;
+      @media screen and (min-width: 960px)
+      {
+        width: 70%;
+      }
+      margin-bottom: .5rem;
+
+      &--last
+      {
+        @media screen and (min-width: 960px)
+        {
+          width: 45%;
+        }
+      }
+    }
+
+    &__title
+    {
+      text-align: center;
+      text-transform: uppercase;
+      font-size: .85rem;
+      color: black;
+      font-weight: bold;
+    }
+
+    &__info
+    {
+      text-align: center;
+    }
+
+    padding: 2rem 2.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.energy
+{
+  display: flex;
+
+  flex-flow: row;
+
+  &__left
+  {
+    display: none;
+    @media screen and (min-width: 960px)
+    {
+      display: block;
+      width: 50%;
+
+      background: url("../img/features.jpg") center;
+      background-size: cover;
+    }
+  }
+  &__right
+  {
+    display: flex;
+
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background: $shipBack;
+    padding: 3rem 2rem;
+
+    @media screen and (min-width: 960px)
+    {
+      width: 50%;
+    }
+  }
+  &__storage
+  {
+    display: flex;
+
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    &s
+    {
+      padding: 0;
+    }
+    list-style-type: none;
+  }
+  &__strokes
+  {
+    width: 100%;
+    height: 0;
+    border: none;
+    border-bottom: 1px solid rgba($subTitleGray, .5);
+    margin: 2rem 0;
+  }
+  &__title
+  {
+    color: $titleGray;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-weight: bold;
+
+    font-size: 1.15rem;
+  }
+  &__strong
+  {
+    color: black;
+    font-size: 2rem;
+    font-weight: normal;
+    display: block;
+    text-transform: none;
+
+    margin-bottom: 2rem;
+  }
+  &__number
+  {
+    font-size: 5.15rem;
+    margin-right: 1rem;
+    color: $titleGray;
+  }
+}
+
+.mobile
+{
+  &__content
+  {
+    margin-top: 8rem;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    @media screen and (min-width: 960px)
+    {
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__left, &__right
+  {
+    width: 100%;
+    @media screen and (min-width: 960px)
+    {
+      width: 50%;
+    }
+  }
+  &__left
+  {
+    padding-right: 4rem;
+
+    margin-bottom: 4rem;
+    @media screen and (min-width: 960px)
+    {
+      margin-bottom: 0;
+    }
+  }
+  &__read
+  {
+    color: white;
+  }
+  &__what
+  {
+    color: $textGray;
+    margin-right: .7rem;
+  }
+}
+
+.cloud
+{
+  padding: 8rem 0;
+  &__layout
+  {
+    display: flex;
+
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__picture, &__content
+  {
+    width: 100%;
+    @media screen and (min-width: 960px)
+    {
+      width: 50%;
+    }
+  }
+  &__content
+  {
+    margin: 0;
+    @media screen and (min-width: 960px)
+    {
+      padding-left: 4rem;
+    }
+  }
+  &__strong
+  {
+    color: black;
+
+    text-transform: none;
+    font-weight: normal;
+    font-size: 2rem;
+    display: block;
+
+    margin: 1rem 0;
+  }
+  &__title
+  {
+    width: 100%;
   }
 }
