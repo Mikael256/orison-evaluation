@@ -58,6 +58,7 @@
     {
       width: 30rem;
     }
+    margin-bottom: 8rem;
   }
 }
 .article
@@ -98,6 +99,8 @@
 {
   &__block
   {
+    position: relative;
+
     border: 1px solid $sideBorder;
     padding: 1rem 1.8rem;
     margin-bottom: 1rem;
@@ -107,7 +110,44 @@
     background: none;
     border: none;
     border-bottom: 1px solid rgba($sideBorder, .5);
-    width: 100%;    
+    width: 100%;
+  }
+  &__looking
+  {
+    color: $subTitleGray;
+    font-size: 1.15rem;
+
+    position: absolute;
+    right: 1.8rem;
+    top: 1rem;
+    width: 1.15rem;
+    height: 1.15rem;
+
+    cursor: pointer;
+  }
+
+  &__ul
+  {
+    padding-left: 1rem;
+  }
+  &__stroke
+  {
+    width: 3rem;
+    height: 0;
+    border: none;
+    border-bottom: 1px solid $sideBorder;
+    margin: 0 auto 1rem 0;
+  }
+  &__list
+  {
+    text-transform: uppercase;
+    font-size: .75rem;
+    color: $titleGray;
+    font-weight: bold;
+    &:hover
+    {
+      color: $darkGrayBack;
+    }
   }
   &__title, &__search::placeholder
   {
@@ -116,4 +156,77 @@
     color: black;
     font-weight: bold;
   }
+  &__grayTitle
+  {
+    text-transform: uppercase;
+    font-size: .85rem;
+    color: $textGray;
+    font-weight: bold;
+    transition: $mainTransition;
+
+    &:hover
+    {
+      color: black;
+    }
+  }
+  &__nameLink
+  {
+    text-decoration: none;
+    &:hover
+    {
+      text-decoration: none;
+    }
+  }
+  &__recentLink
+  {
+    display: block;
+    font-size: .85rem;
+    color: black;
+    font-weight: bold;
+
+    transition: $mainTransition;
+
+    &:hover
+    {
+      color: $titleGray;
+      text-decoration: none;
+    }
+  }
+  &__date
+  {
+    display: block;
+    color: $textGray;
+    font-size: .85rem;
+
+    margin-bottom: 1rem;
+  }
+  &__tweet
+  {
+    font-size: 1.15rem;
+    line-height: 1.16rem;
+  }
+  &__twitterLink
+  {
+    text-transform: uppercase;
+    font-size: .85rem;
+    color: $titleGray;
+    font-weight: bold;
+
+    &--hover
+    {
+      transition: $mainTransition;
+
+      &:hover
+      {
+        color: $darkGrayBack;
+        text-decoration: none;
+      }
+    }
+
+  }
+  &__padding
+  {
+    padding-bottom: 1rem;
+  }
+
 }
